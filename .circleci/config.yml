@@ -20,8 +20,8 @@ jobs:
       - checkout
 
       - run:
-        name: Show current branch
-        command: echo ${CIRCLE_BRANCH}
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
 
       # Download and cache dependencies
       - restore_cache:
@@ -32,8 +32,8 @@ jobs:
 
       #- run: yarn install
       - run:
-        name: Install local dependencies
-        command: npm install
+          name: Install local dependencies
+          command: npm install
 
       - save_cache:
           paths:
@@ -44,5 +44,5 @@ jobs:
       #- run: yarn test
 
       - run: # run tests
-        name: test
-        command: npm test
+          name: test
+          command: npm test
