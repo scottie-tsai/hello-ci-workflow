@@ -35,5 +35,30 @@ jobs:
         
       # run tests!
       - run: yarn test
+  test:
+    docker:
+      - image: circleci/node:7.10
+    steps:
+      - checkout
+      - run:
+        name: Test
+        command: npm test
+        
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+
+      
+
+
 
 
